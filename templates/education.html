@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% block content %}<div class="card"><h1>📚 Money Basics</h1><p>Short explanations for students.</p></div><div class="grid two">{% for title,text in lessons %}<div class="card"><h2>{{title}}</h2><p>{{text}}</p></div>{% endfor %}</div>{% endblock %}
