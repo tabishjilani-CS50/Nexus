@@ -1,28 +1,41 @@
-# Nexus - Student Hackathon Edition
+# Nexus
 
-A small Flask finance project made to be understandable by a student.
+Nexus is a simple student-friendly personal finance and financial education web app built with Python and Flask.
 
-Features:
-- income and expense tracking
-- budgets and alerts
-- What-If simulator
-- Student Mode
-- Can I Afford This?
-- Savings Goal
-- Emergency Buffer
-- simple health score
-- money lessons
-- report export
-- CSV storage
+The idea behind Nexus is to help students understand their money better without needing complicated financial tools. It lets users track income and expenses, set budgets, plan savings, and explore different financial situations.
 
-Run on Windows:
+## What Nexus Can Do
 
-    py -m venv venv
-    .\venv\Scripts\python.exe -m pip install -r requirements.txt
-    .\venv\Scripts\python.exe app.py
+- Track income and expenses
+- View transactions and spending categories
+- Create simple budgets
+- Check whether a purchase is affordable
+- Set a savings goal
+- Calculate an emergency buffer
+- Try "What If?" financial scenarios
+- Use Student Mode for common student expenses
+- Get a simple financial health score
+- Read basic money lessons
+- Generate a simple financial report
+- Load demo data for testing
 
-Open http://127.0.0.1:5000
+## Why I Made Nexus
 
-The ZIP does not include a virtual environment or CSV data, so existing Nexus data is not overwritten when you copy the project.
+Many financial apps are designed for adults and can feel complicated for students.
 
-For a hackathon, be honest about AI assistance and make sure you understand the code you submit.
+Nexus focuses on making basic financial planning easier to understand and experiment with, especially for students who are just starting to learn about managing money.
+
+## Built With
+
+- Python
+- Flask
+- HTML
+- CSS
+- CSV files
+
+## Running Nexus
+
+Install the requirements:
+
+```bash
+pip install -r requirements.txt
