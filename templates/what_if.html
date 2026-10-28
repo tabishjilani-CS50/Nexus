@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="hero">
+    <h1>🔮 What-If Simulator</h1>
+    <p>Test a possible money problem before it happens.</p>
+</section>
+
+<div class="card">
+    <h2>Current situation</h2>
+
+    <div class="grid three">
+        <div>
+            <small>Income</small>
+            <h2>{{ income|money }}</h2>
+        </div>
+
+        <div>
+            <small>Expenses</small>
+            <h2>{{ expenses|money }}</h2>
+        </div>
+
+        <div>
+            <small>Balance</small>
+            <h2>{{ balance|money }}</h2>
+        </div>
+    </div>
+
+    <form method="post">
+
+        <label>Income change (₹)</label>
+        <input name="income_change" type="number" value="0">
+
+        <label>Extra monthly expenses (₹)</label>
+        <input name="expense_change" type="number" value="0">
+
+        <label>Unexpected cost (₹)</label>
+        <input name="emergency" type="number" value="0">
+
+        <label>Savings goal (₹)</label>
+        <input name="goal" type="number" value="0">
+
+        <button>Run scenario</button>
+
+    </form>
+</div>
+
+{% if result %}
+
+<div class="card">
+
+    <h2>Scenario result</h2>
+
+    <div class="grid three">
+
+        <div>
+            <small>New income</small>
+            <h2>{{ result.income|money }}</h2>
+        </div>
+
+        <div>
+            <small>New expenses</small>
+            <h2>{{ result.expenses|money }}</h2>
+        </div>
+
+        <div>
+            <small>New balance</small>
+            <h2>{{ result.balance|money }}</h2>
+        </div>
+
+    </div>
+
+    {% for a in result.advice %}
+        <p>• {{ a }}</p>
+    {% endfor %}
+
+</div>
+
+{% endif %}
+
+{% endblock %}

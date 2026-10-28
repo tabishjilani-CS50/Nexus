@@ -1,0 +1,69 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="hero">
+    <h1>Your money, made easier.</h1>
+    <p>Nexus turns a simple transaction list into practical financial decisions.</p>
+    <a class="button" href="/add">+ Add transaction</a>
+    <a class="button green" href="/what-if">Try What-If</a>
+</section>
+
+<div class="grid four">
+    {% for k, v in [
+        ('Income', income),
+        ('Expenses', expenses),
+        ('Balance', balance),
+        ('Transactions', transactions)
+    ] %}
+        <div class="card">
+            <small>{{ k }}</small>
+            <h2>
+    {% if k == 'Transactions' %}
+        {{ v|length }}
+    {% else %}
+        {{ v|money }}
+    {% endif %}
+</h2>
+        </div>
+    {% endfor %}
+</div>
+
+{% if alerts %}
+<div class="card">
+    <h2>⚠ Budget alerts</h2>
+    {% for a in alerts %}
+        <p>{{ a }}</p>
+    {% endfor %}
+</div>
+{% endif %}
+
+<div class="grid two">
+
+    <div class="card">
+        <h2>Spending</h2>
+
+        {% for c, v in categories.items() %}
+            <div class="row">
+                <span>{{ c }}</span>
+                <b>{{ v|money }}</b>
+            </div>
+        {% else %}
+            <p>No expenses yet.</p>
+        {% endfor %}
+
+    </div>
+
+    <div class="card">
+        <h2>Community features</h2>
+        <p>🎓 Student-friendly budgeting</p>
+        <p>🔮 What-if life scenarios</p>
+        <p>❤️ Simple financial health</p>
+        <p>♿ Low-clutter interface</p>
+        <p>📚 Tiny money lessons</p>
+    </div>
+
+</div>
+
+{% endblock %}

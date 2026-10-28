@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card">
+    <h1>Transactions</h1>
+
+    <form class="search">
+        <input name="q" placeholder="Search">
+
+        <select name="type">
+            <option value="">All</option>
+            <option>Income</option>
+            <option>Expense</option>
+        </select>
+
+        <button>Search</button>
+    </form>
+
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th></th>
+        </tr>
+
+        {% for t in ts %}
+        <tr>
+            <td>{{ t.date }}</td>
+            <td>{{ t.type }}</td>
+            <td>{{ t.category }}</td>
+            <td>{{ t.amount|money }}</td>
+            <td>
+                <a href="/delete/{{ t.id }}">Delete</a>
+            </td>
+        </tr>
+
+        {% else %}
+        <tr>
+            <td colspan="5">No transactions.</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}
